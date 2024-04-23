@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  creator: MyString
+  store_url: MyString
+  tracking_code: MyString
+  visit: 1
+
+two:
+  creator: MyString
+  store_url: MyString
+  tracking_code: MyString
+  visit: 1
