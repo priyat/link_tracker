@@ -1,6 +1,7 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :redirect]
 
+  # POST /links
   def create
     @link = Link.new(link_params)
 
@@ -11,27 +12,22 @@ class LinksController < ApplicationController
     end
   end
 
+  # GET /links/:tracking_code
   def show
-    if @link
-      render json: @link
-    else
-      render json: { error: 'Link not found' }, status: :not_found 
-    end
+    render json: @link
   end
 
+  # GET /:tracking_code
   def redirect
-    if @link
-      @link.increment!(:visit)
-      redirect_to @link.store_url
-    else
-      render json: { error: 'Link not found' }, status: :not_found 
-    end
+    @link.increment!(:visit)
+    redirect_to @link.store_url, allow_other_host: true
   end
 
   private
 
   def set_link
     @link = Link.find_by(tracking_code: params[:tracking_code])
+    render json: { error: 'Tracking link not found' }, status: :not_found unless @link
   end
 
   def link_params

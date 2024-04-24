@@ -11,6 +11,7 @@ Things you may want to cover:
 
 * APIs
 1. As a Sideqik Client, I want to provide my store URL and have the API respond with a random tracking link.
+
 Input: store_url
 Output: Random tracking code
 
@@ -60,3 +61,7 @@ Response:
     "created_at": "2024-04-23T18:05:33.495Z",
     "updated_at": "2024-04-23T18:05:33.495Z"
 }
+
+Execute rspec test cases by executing below command.
+
+** bundle exec rspec
